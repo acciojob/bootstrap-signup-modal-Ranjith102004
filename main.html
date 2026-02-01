@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-    <div class="container" style="margin-top: 50px;">
+    <div class="container text-center" style="margin-top: 50px;">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">
             Sign Up
         </button>
@@ -18,6 +19,7 @@
     <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
+                
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -26,23 +28,25 @@
                 </div>
                 
                 <form method="post" action="{% url 'accounts:register' %}">
-                   
+                    {% csrf_token %}
                     <div class="modal-body">
-                        <div class="form-group">
+                        
+                        <div class="form-group text-left">
                             <label for="emailInput">Email address</label>
                             <input type="email" name="email" class="form-control" id="emailInput" placeholder="Enter email" required>
-                            <span class="help-block">Your information is safe with us.</span>
+                            <small class="help-block">Your information is safe with us.</small>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group text-left">
                             <label for="passwordInput">Password</label>
                             <input type="password" name="password" class="form-control" id="passwordInput" placeholder="Password" required>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group text-left">
                             <label for="confirmPasswordInput">Confirm Password</label>
                             <input type="password" name="confirm_password" class="form-control" id="confirmPasswordInput" placeholder="Confirm Password" required>
                         </div>
+
                     </div>
 
                     <div class="modal-footer">
